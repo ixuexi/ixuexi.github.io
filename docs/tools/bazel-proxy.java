@@ -1,4 +1,7 @@
 /*
+                    bazel支持proxy代理版本
+                    bazel with proxy brach
+
 目前bazel编译工具还不能在使用proxy的网络环境下下载url依赖包，不知是proxy下载功能未开发完整还是什么原因，
 只要在proxy网络环境下，无法下载外部包依赖。从bazel在github的issue上看，好像当前还不支持proxy下载功能。
 
