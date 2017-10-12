@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>All Posts - Kevin's blog</title>
+<meta name="description" content="Kevin's Blog">
+<link rel="canonical" href="/all.html">
+<link rel="alternate" type="application/rss+xml" title="Kevin's blog" href="/feed.xml">
+
+        <!--
+    for Safari on iOS
+    https://developer.apple.com/ios/human-interface-guidelines/icons-and-images/app-icon/
+-->
+
+<link rel="apple-touch-icon" sizes="180x180" href="/statics/images/logo/icon-180x180.png">
+<link rel="apple-touch-icon" sizes="167x167" href="/statics/images/logo/icon-167x167.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/statics/images/logo/icon-152x152.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/statics/images/logo/icon-120x120.png">
+<link rel="shortcut icon" href="/statics/images/logo/icon-120x120.png">
+
+<!--
+    for Chrome on Android
+    https://developer.chrome.com/multidevice/android/installtohomescreen
+-->
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" sizes="192x192" href="/statics/images/logo/icon-192x192.png">
+
+<!--
+    for Edge on Windows 10
+    https://msdn.microsoft.com/en-us/library/dn255024(v=vs.85).aspx
+-->
+<meta name="msapplication-TileImage" content="/statics/images/logo/icon-144x144.png">
+<meta name="msapplication-square310x310logo" content="/statics/images/icon-310x310.png">
+<meta name="msapplication-wide310x150logo" content="/statics/images/icon-310x150.png">
+<meta name="msapplication-square150x150logo" content="/statics/images/icon-150x150.png">
+<meta name="msapplication-square70x70logo" content="/statics/images/icon-70x70.png">
+<meta name="msapplication-TileColor" content="#eeeeee">
+        <link rel="stylesheet" href="/statics/css/blog.css">
+        <style>
+            
+            
+        </style>
+        <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="m-page-stage js-page-stage">
+            <div class="m-page-content">
+    <header class="m-page-header main clearfix">
+    <a class="site-title" title="Kevin's Blog"
+        href="/">Kevin's blog
+    </a>
+    <div class="site-logo">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="24px" height="24px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#666666;}
+</style>
+<path class="st0" d="M1.7,22.3c5.7-5.7,11.3-5.7,17,0c3.3-3.3,3.5-5.3,0.8-6c2.7,0.7,3.5-1.1,2.3-5.6s-3.3-5.2-6.3-2.1
+	c3-3,2.3-5.2-2.1-6.3S7,1.8,7.7,4.6C7,1.8,5,2.1,1.7,5.3C7.3,11,7.3,16.7,1.7,22.3"/>
+</svg>
+    </div>
+    <nav class="site-nav">
+        <ul class="clearfix">
+            <li><a href="/">Home</a></li>
+            <li><a href="/all.html?tag=">All</a></li>
+            
+                <li><a href="/about.html"> About </a></li>
+            
+        </ul>
+    </nav>
+</header>
+
+    <div class="m-page-main">
+        <div class="main">
+    <section class="m-all">
+        <h1 class="page-heading">All Posts</h1>
+        <div class="tag-wrapper">
+            
+
+
+
+
+
+<div class="m-tags">
+    
+        <button type="button" class="article-tag tag-show-all round-rect-button" onclick="tagSelect('')">
+            Show All<div class="tag-count"> 1 </div>
+        </button>
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        
+            <button type="button" class="article-tag tag-bazel tag-1 tag-other round-rect-button" onclick="tagSelect('bazel')">
+                    bazel<div class="tag-count">1</div>
+            </button>
+        
+    
+</div>
+
+        </div>
+
+        <!--group by year: http://stackoverflow.com/questions/19086284/jekyll-liquid-templating-how-to-group-blog-posts-by-year-->
+        <section class="year-wrapper">
+            
+                
+                
+                    
+                    <section id="2017">
+                    <h1 class="yaer-title" id="year-2017">2017</h1>
+                    <ul class="post-list">
+                    
+                
+                <li class="post-block  tag-bazel ">
+                    <span class="post-date">Oct 12</span><a class="post-link" href="/2017/10/12/bazel-with-proxy.html">bazel with proxy</a>
+                </li>
+                </ul></section>
+            
+        </section>
+    </section>
+</div>
+
+<script type="text/javascript">
+    // function queryString is copied from
+    // http://stackoverflow.com/questions/979975/how-to-get-the-value-from-url-parameter#answer-979995
+    function queryString() {
+      // This function is anonymous, is executed immediately and
+      // the return value is assigned to QueryString!
+      var query_string = {};
+      var query = window.location.search.substring(1);
+      var vars = query.split("&");
+      for (var i=0;i<vars.length;i++) {
+        var pair = vars[i].split("=");
+        // If first entry with this name
+        if (typeof query_string[pair[0]] === "undefined") {
+            query_string[pair[0]] = pair[1];
+        // If second entry with this name
+        } else if (typeof query_string[pair[0]] === "string") {
+            var arr = [ query_string[pair[0]], pair[1] ];
+            query_string[pair[0]] = arr;
+        // If third or later entry with this name
+        } else {
+            query_string[pair[0]].push(pair[1]);
+        }
+      }
+        return query_string;
+    }
+
+    function tagSelect(tag) {
+        if (tag === undefined || tag === '') {
+            $('.page-heading').text('All Posts');
+            $('.article-tag.tag-show-all').focus();
+            $('.post-block').show();
+        } else {
+            $('.page-heading').text('Tag: ' + tag);
+            $('.post-block').not('.tag-' + tag).hide();
+            $('.article-tag').filter('.tag-' + tag).focus();
+            $('.post-block').filter('.tag-' + tag).show();
+        }
+        $('.year-wrapper section').each(function() {
+            var li_all_show = false;
+            var li_lists = $(this).find('li');
+            for (var i = 0; i < li_lists.length; i++) {
+                if($(li_lists[i]).css('display') !== 'none') {
+                    li_all_show = true;
+                    break;
+                }
+            }
+            if (li_all_show === false) {
+                $(this).hide();
+            } else {
+                $(this).show();
+            }
+        });
+        tag === undefined || window.history.replaceState(null, '', '/all.html?tag=' + tag);
+    }
+
+    $(function() {
+        var query = queryString();
+        var tag = undefined;
+        query.tag === undefined || (tag = decodeURI(query.tag));
+        tagSelect(tag);
+    });
+</script>
+
+    </div>
+</div>
+
+        </div>
+        <div class="m-page-footer js-page-footer">
+    <div class="main">
+        <aside class="follow-me">
+            <div class="follow-me">
+    <div>
+        <ul class="clearfix" itemscope itemtype="http://schema.org/Person">
+            <meta itemprop="name" content="Kevin Wang">
+            <link itemprop="url" href="/">
+            
+            <li class="round-button mail" title="Send me e-mail.">
+                <a itemprop="sameAs" href="mailto:://wangkai365@outlook.com" target="_blank">
+                    <div class="icon"><svg fill="#000000" width="24px" height="24px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <path d="M512.091 166.946c116.242 0 232.484-0.014 348.727 0.007 41.522 0.008 76.321 12.188 94.842 53.167 8.25 18.251 6.5 30.831-13.43 43.256-137.452 85.695-274.125 172.655-410.534 260.014-14.762 9.456-24.638 9.569-39.498 0.041C354.353 435.041 216.033 347.399 77.465 260.14c-12.701-8.002-16.368-15.572-12.01-29.962 9.882-32.627 30.845-52.873 63.868-59.66 13.656-2.806 27.953-3.4 41.966-3.431C284.888 166.83 398.492 166.943 512.091 166.946z" />
+    <path d="M510.888 856.021c-117.998 0-235.996 0.134-353.993-0.067-47.671-0.083-79.295-22.331-91.17-61.206-4.28-14.027-2.127-22.232 10.858-30.356 108.193-67.725 215.807-136.366 324.233-203.713 7.275-4.519 21.51-4.25 29.378-0.171 22.589 11.713 44.026 25.859 64.999 40.383 11.823 8.191 21.091 8.623 33.117 0.325 20.993-14.484 43.689-26.52 64.549-41.176 12.159-8.539 20.73-7.176 32.785 0.537 106.04 67.844 212.318 135.315 319.158 201.894 16.481 10.272 18.065 21.564 12.577 37.407-12.35 35.666-45.183 55.999-92.491 56.081C746.889 856.149 628.886 856.021 510.888 856.021z" />
+    <path d="M64.376 326.925c97.051 61.769 192.332 122.409 290.508 184.898-97.877 62.309-192.719 122.68-290.508 184.932C64.376 572.674 64.376 451.511 64.376 326.925z" />
+    <path d="M959.665 327.168c0 124.369 0 244.164 0 369.253-97.913-62.322-192.914-122.792-290.001-184.589C766.993 449.854 861.628 389.595 959.665 327.168z" />
+</svg>
+</div>
+                </a>
+            </li>
+            
+            
+            
+            
+            
+            
+            
+            
+        </ul>
+        
+        <p class="email">
+            <a title="Send me e-mail." href="mailto:wangkai365@outlook.com" target="_self"> wangkai365@outlook.com </a>
+        </p>
+        
+    </div>
+</div>
+
+        </aside>
+        <footer class="site-info">
+            <p>© Kevin's blog 2015 - 2017</p>
+            <p>Powered by <a href="http://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/kitian616/jekyll-TeXt-theme">TeXt Theme</a>.</p>
+            </p>
+        </footer>
+    </div>
+</div>
+
+        <script src="//cdn.bootcss.com/emojione/2.2.6/lib/js/emojione.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                // display coding language //
+                $(".highlight").each(function() {
+                    $(this).attr("data-lang", $(this).find("code").attr("data-lang"));
+                });
+                // picture lazy load //
+                // $(".article-content img").each(function(){
+                //     $(this).attr('data-src', $(this).attr('src'));
+                // });
+                // $(".article-content img").unveil();
+                //
+                $(".m-article-content").each(function() {
+                    var original = $(this).html();
+                    emojione.imageType = 'svg';
+                    var converted = emojione.toImage(original);
+                    $(this).html(converted);
+                });
+            });
+        </script>
+        
+            
+        
+    </body>
+</html>

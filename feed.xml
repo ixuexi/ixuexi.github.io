@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://0.0.0.0:3000//feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="http://jekyllrb.com" version="3.3.0">Jekyll</generator><link href="http://0.0.0.0:3000//feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:3000//" rel="alternate" type="text/html" hreflang="en" /><updated>2017-10-12T23:06:47+08:00</updated><id>http://0.0.0.0:3000///</id><title type="html">Kevin’s blog</title><subtitle>Kevin's Blog</subtitle><author><name>Kevin Wang</name></author><entry><title type="html">bazel with proxy</title><link href="http://0.0.0.0:3000//2017/10/12/bazel-with-proxy.html" rel="alternate" type="text/html" title="bazel with proxy" /><published>2017-10-12T22:30:00+08:00</published><updated>2017-10-12T22:30:00+08:00</updated><id>http://0.0.0.0:3000//2017/10/12/bazel-with-proxy</id><content type="html" xml:base="http://0.0.0.0:3000//2017/10/12/bazel-with-proxy.html">&lt;p&gt;目前bazel编译工具还不能在使用proxy的网络环境下下载url依赖包，不知是proxy下载功能未开发完整还是什么原因，
+只要在proxy网络环境下，无法下载外部包依赖。从bazel在github的issue上看，好像当前还不支持proxy下载功能。
+从bazel本身的代码看，在运行bazel时更是将http_proxy的环境变量给去掉了：&lt;/p&gt;
+
+&lt;p&gt;src/main/cpp/blaze.cc:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;  &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;PrepareEnvironmentForJvm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(!&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;blaze:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetEnv&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http_proxy&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;empty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;PrintWarning&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ignoring http_proxy in environment.&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;nl&quot;&gt;blaze:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UnsetEnv&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http_proxy&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;由于本人也是工作在proxy网络之下(痛苦)，因此自己简易做了一个代码适配，可以支持proxy的bazel，github地址：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/ixuexi/bazel&quot;&gt;https://github.com/ixuexi/bazel&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;下载代码后，在原有bazel基础上(建议使用bazel 0.5.3以上版本，没有的下载二进制包安装一个即可)，
+重新编译bazel（方法见readme）然后替换现有bazel二进制文件即可。&lt;/p&gt;
+
+&lt;p&gt;Kevin&lt;br /&gt;
+2017/9/21&lt;/p&gt;</content><author><name>Kevin Wang</name></author><category term="bazel" /><summary type="html">目前bazel编译工具还不能在使用proxy的网络环境下下载url依赖包，不知是proxy下载功能未开发完整还是什么原因，
+只要在proxy网络环境下，无法下载外部包依赖。从bazel在github的issue上看，好像当前还不支持proxy下载功能。
+从bazel本身的代码看，在运行bazel时更是将http_proxy的环境变量给去掉了：
+
+src/main/cpp/blaze.cc:
+
+  static void PrepareEnvironmentForJvm() {
+    if (!blaze::GetEnv(&quot;http_proxy&quot;).empty()) {
+      PrintWarning(&quot;ignoring http_proxy in environment.&quot;);
+      blaze::UnsetEnv(&quot;http_proxy&quot;);
+  }
+
+由于本人也是工作在proxy网络之下(痛苦)，因此自己简易做了一个代码适配，可以支持proxy的bazel，github地址：
+
+https://github.com/ixuexi/bazel
+
+下载代码后，在原有bazel基础上(建议使用bazel 0.5.3以上版本，没有的下载二进制包安装一个即可)，
+重新编译bazel（方法见readme）然后替换现有bazel二进制文件即可。
+
+Kevin
+2017/9/21</summary></entry></feed>
